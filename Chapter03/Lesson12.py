@@ -39,7 +39,7 @@ def getAllExternalLinks(siteUrl):
     domain =  '{}://{}'.format(urlparse(siteUrl).scheme, urlparse(siteUrl).netloc)
     bs = BeautifulSoup(html, 'html.parser')
     internalLinks = getInternalLinks(bs, domain)
-    externalLinks = getExternalLinks(bs, domain)
+    externalLinks = getExternalLinks(bs, urlparse(siteUrl).netloc)
 
     for link in externalLinks:
         if link not in allExtLinks:
